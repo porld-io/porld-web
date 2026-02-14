@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porld Inc. | Interactive IP & Tech Holdings</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-primary: #111111;
+            --text-secondary: #555555;
+            --line-color: #e0e0e0;
+            --tech-accent: #0047FF; /* 쨍한 인터내셔널 블루 (Tech 신뢰감) */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- 네비게이션 --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 25px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--line-color);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        .nav-logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.4rem;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-left: 35px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--tech-accent); }
+
+        /* --- 히어로 섹션 (메인) --- */
+        header.hero {
+            min-height: 85vh;
+            padding: 180px 50px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--text-primary);
+        }
+
+        .hero-title h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 5.5vw;
+            line-height: 0.95;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            color: var(--text-primary);
+        }
+
+        /* 텍스트에 그라디언트 포인트 */
+        .highlight {
+            background: linear-gradient(90deg, var(--tech-accent) 0%, #001f7a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 50px;
+        }
+
+        .hero-desc {
+            max-width: 450px;
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border: 1px solid var(--line-color);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            color: var(--tech-accent);
+        }
+
+        /* --- 섹션 공통 --- */
+        section {
+            padding: 120px 50px;
+            border-bottom: 1px solid var(--line-color);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 80px;
+        }
+
+        .section-label {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* --- 기술 자산 (Grid) --- */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px; /* 선 굵기 */
+            background: var(--line-color); /* 그리드 선 색상 */
+            border: 1px solid var(--line-color);
+        }
+
+        .tech-item {
+            background: #fff;
+            padding: 50px 40px;
+            transition: background 0.3s;
+        }
+        .tech-item:hover { background: #f9faff; }
+
+        .tech-icon {
+            font-size: 1.5rem;
+            color: var(--tech-accent);
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .tech-item h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .tech-item p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* --- 운영 구조 (Structure) --- */
+        .structure-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .structure-info { max-width: 50%; }
+        .structure-info h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            line-height: 1.1;
+        }
+
+        .role-box {
+            margin-top: 40px;
+            padding: 30px;
+            background: #f4f4f4;
+            border-left: 4px solid var(--tech-accent);
+        }
+        .role-title { font-weight: 700; font-size: 0.9rem; color: var(--text-primary); display: block; margin-bottom: 5px;}
+        .role-desc { font-size: 0.9rem; color: var(--text-secondary); }
+
+        /* --- 푸터 --- */
+        footer {
+            padding: 60px 50px;
+            background: #0a0a0a;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.8rem;
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+            transition: all 0.3s;
+        }
+        footer a:hover { color: var(--tech-accent); border-color: var(--tech-accent); }
+
+        .footer-info {
+            text-align: right;
+            font-size: 0.85rem;
+            color: #888;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 20px; }
+            .nav-links { display: none; }
+            header.hero { padding: 120px 20px 60px; min-height: auto; }
+            .hero-title h1 { font-size: 3.2rem; }
+            section { padding: 60px 20px; }
+            .tech-grid { grid-template-columns: 1fr; }
+            .structure-container { flex-direction: column; gap: 40px; }
+            .structure-info { max-width: 100%; }
+            footer { flex-direction: column; gap: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-logo">PORLD INC.</div>
+    <div class="nav-links">
+        <a href="#assets">Core Assets</a>
+        <a href="#structure">Governance</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="hero-title">
+        <span class="badge">US Delaware Corporation</span>
+        <h1>Architecting the<br><span class="highlight">Core Engine</span> of<br>Infinite Narratives.</h1>
+    </div>
+    <div class="hero-footer">
+        <div class="hero-desc">
+            We are a technology holding company securing proprietary server architecture and original IP.
+            Bridging global strategy with sophisticated interactive content.
+        </div>
+        <div style="font-family:'Syne'; font-weight:700;">SCROLL ↓</div>
+    </div>
+</header>
+
+<section id="assets">
+    <div class="section-header">
+        <span class="section-label">01 / Core Technologies</span>
+    </div>
+
+    <div class="tech-grid">
+        <div class="tech-item">
+            <span class="tech-icon">●</span>
+            <h3>Server-Authoritative Core</h3>
+            <p>A centralized simulation architecture where all critical logic and state transitions are computed server-side, ensuring absolute data integrity and security against manipulation.</p>
+        </div>
+
+        <div class="tech-item">
+            <span class="tech-icon">●</span>
+            <h3>Dynamic State Engine</h3>
+            <p>Proprietary algorithm designed to manage complex, non-linear variables and emergent storytelling, processing thousands of unique user states simultaneously.</p>
+        </div>
+
+        <div class="tech-item">
+            <span class="tech-icon">●</span>
+            <h3>High-Scalability Infra</h3>
+            <p>Enterprise-grade cloud infrastructure built for massive concurrency, allowing seamless expansion of simulation instances without compromising performance.</p>
+        </div>
+    </div>
+</section>
+
+<section id="structure">
+    <div class="section-header" style="flex-direction: column; gap: 20px;">
+        <span class="section-label">02 / Global Governance</span>
+        <h2 style="font-family: 'Syne', sans-serif; font-size: 2.5rem; line-height: 1.1;">
+            Headquarters & <br>Strategic Partnerships
+        </h2>
+        <p style="max-width: 600px; color: var(--text-secondary); margin-top: 10px;">
+            Porld Inc. focuses on core IP security and R&D, collaborating with top-tier regional publishers for global market expansion.
+        </p>
+    </div>
+
+    <div class="tech-grid" style="grid-template-columns: repeat(2, 1fr); margin-top: 50px;">
+
+        <div class="tech-item" style="border-right: 1px solid var(--line-color);">
+            <span class="badge" style="border-color: var(--text-primary); color: var(--text-primary);">CORPORATE HQ</span>
+            <h3 style="margin-top: 15px;">Porld Inc.</h3>
+            <p style="font-size: 0.9rem; color: #888; margin-bottom: 20px;">Delaware, USA</p>
+            <ul style="list-style: none; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8;">
+                <li>• Intellectual Property Holdings</li>
+                <li>• Core Technology R&D</li>
+                <li>• Global Strategy & Governance</li>
+            </ul>
+        </div>
+
+        <div class="tech-item">
+            <span class="badge" style="border-color: var(--tech-accent); color: var(--tech-accent);">STRATEGIC PARTNER</span>
+            <h3 style="margin-top: 15px;">WPW Studio</h3>
+            <p style="font-size: 0.9rem; color: #888; margin-bottom: 20px;">Seoul, Korea</p>
+            <ul style="list-style: none; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8;">
+                <li>• Regional Publishing & Live Ops</li>
+                <li>• Market Localization Specialist</li>
+                <li>• Service Infrastructure Management</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+<footer id="contact">
+    <div style="display: flex; flex-direction: column; gap: 30px;">
+
+        <div>
+            <span style="font-size: 0.75rem; color: #888; display:block; margin-bottom:8px; letter-spacing: 0.05em;">GENERAL INQUIRY</span>
+            <a href="mailto:contact@porld.io" style="font-size: 1.4rem;">contact@porld.io</a>
+        </div>
+
+        <div>
+            <span style="font-size: 0.75rem; color: #888; display:block; margin-bottom:8px; letter-spacing: 0.05em;">CORPORATE & BOARD</span>
+            <a href="mailto:board@porld.io" style="font-size: 1.4rem;">board@porld.io</a>
+        </div>
+
+    </div>
+
+    <div class="footer-info">
+        Porld Inc. | 131 Continental Dr, Suite 305<br>
+        Newark, DE 19713, USA<br><br>
+        &copy; 2026 Porld Inc. All Rights Reserved.
+    </div>
+</footer>
+
+</body>
+</html>
