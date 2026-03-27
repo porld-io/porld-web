@@ -24,7 +24,7 @@
             --text-primary: #111111;
             --text-secondary: #555555;
             --line-color: #e0e0e0;
-            --tech-accent: #0047FF; /* 쨍한 인터내셔널 블루 (Tech 신뢰감) */
+            --tech-accent: #0047FF;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -89,7 +89,6 @@
             color: var(--text-primary);
         }
 
-        /* 텍스트에 그라디언트 포인트 */
         .highlight {
             background: linear-gradient(90deg, var(--tech-accent) 0%, #001f7a 100%);
             -webkit-background-clip: text;
@@ -145,8 +144,8 @@
         .tech-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1px; /* 선 굵기 */
-            background: var(--line-color); /* 그리드 선 색상 */
+            gap: 1px;
+            background: var(--line-color);
             border: 1px solid var(--line-color);
         }
 
@@ -337,12 +336,12 @@
 
         <div>
             <span style="font-size: 0.75rem; color: #888; display:block; margin-bottom:8px; letter-spacing: 0.05em;">GENERAL INQUIRY</span>
-            <a href="mailto:contact@porld.io" style="font-size: 1.4rem;">contact@porld.io</a>
+            <a id="email-general" href="#" style="font-size: 1.4rem;"></a>
         </div>
 
         <div>
             <span style="font-size: 0.75rem; color: #888; display:block; margin-bottom:8px; letter-spacing: 0.05em;">CORPORATE & BOARD</span>
-            <a href="mailto:board@porld.io" style="font-size: 1.4rem;">board@porld.io</a>
+            <a id="email-board" href="#" style="font-size: 1.4rem;"></a>
         </div>
 
     </div>
@@ -354,7 +353,20 @@
     </div>
 </footer>
 
+<script>
+    (function() {
+        var d = 'porld.io';
+        var e1 = document.getElementById('email-general');
+        var u1 = 'contact';
+        e1.href = 'mailto:' + u1 + '@' + d;
+        e1.textContent = u1 + '@' + d;
+
+        var e2 = document.getElementById('email-board');
+        var u2 = 'board';
+        e2.href = 'mailto:' + u2 + '@' + d;
+        e2.textContent = u2 + '@' + d;
+    })();
+</script>
+
 </body>
 </html>
-
-
